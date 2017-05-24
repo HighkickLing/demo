@@ -29,6 +29,13 @@ public:
 	void *operator new(std::size_t) = delete;
 };
 
+class NewHolder
+{
+	//void *operator new(std::size_t size, void *ptr); //cannot be overloaded
+private:
+	~NewHolder();
+};
+
 TEST(raii, NormalHolder)
 {
 	NormalHolder a;
@@ -39,4 +46,12 @@ TEST(raii, DeleteHolder)
 {
 	DeleteHolder a;
 	//DeleteHolder *b = new DeleteHolder();
+}
+
+TEST(raii, NewHolderTest)
+{
+	char a[ sizeof(NewHolder) ];
+	new (a) NewHolder();
+
+	//NewHolder b;
 }
