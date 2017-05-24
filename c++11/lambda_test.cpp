@@ -46,6 +46,16 @@ public:
 		auto totalChild = [=]() -> int {return girls_ + boys_;};
 		return totalChild();
 	}
+	int capture_this_short()
+	{
+		auto totalChild = [=] {return girls_ + boys_;};
+		return totalChild();
+	}
+	int capture_this_decltype()
+	{
+		auto totalChild = [=]() -> decltype(girls_) {return girls_ + boys_;};
+		return totalChild();
+	}
 	~CaptureClass()
 	{
 
@@ -59,4 +69,16 @@ TEST(lambda, capture_this)
 {
 	CaptureClass c(3, 4);
 	ASSERT_EQ(c.capture_this(), 7);
+}
+
+TEST(lambda, capture_this_short)
+{
+	CaptureClass c(3, 4);
+	ASSERT_EQ(c.capture_this_short(), 7);
+}
+
+TEST(lambda, capture_this_decltype)
+{
+	CaptureClass c(3, 4);
+	ASSERT_EQ(c.capture_this_decltype(), 7);
 }
