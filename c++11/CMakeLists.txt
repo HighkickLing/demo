@@ -35,7 +35,8 @@ include_directories(
 set(TEST_FILES
 	googletest/googletest/src/gtest-all.cc
 	googletest/googletest/src/gtest_main.cc
-	lambda_test.cpp)
+	lambda_test.cpp
+	raii_test.cpp)
 
 add_executable(${PROJECT_NAME} ${TEST_FILES})
 target_link_libraries(${PROJECT_NAME} ${CMAKE_THREAD_LIBS_INIT})
