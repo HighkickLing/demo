@@ -37,7 +37,9 @@ set(TEST_FILES
 	googletest/googletest/src/gtest_main.cc
 	lambda_test.cpp
 	raii_test.cpp
-	rvalue_test.cpp)
+	rvalue_test.cpp
+	unique_ptr_test.cpp
+	revert_list_test.cpp)
 
 add_executable(${PROJECT_NAME} ${TEST_FILES})
 target_link_libraries(${PROJECT_NAME} ${CMAKE_THREAD_LIBS_INIT})
