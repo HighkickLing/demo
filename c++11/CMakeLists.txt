@@ -39,7 +39,9 @@ set(TEST_FILES
 	raii_test.cpp
 	rvalue_test.cpp
 	unique_ptr_test.cpp
-	revert_list_test.cpp)
+	revert_list_test.cpp
+	essential_cpp/chapter_3.cpp
+	)
 
 add_executable(${PROJECT_NAME} ${TEST_FILES})
 target_link_libraries(${PROJECT_NAME} ${CMAKE_THREAD_LIBS_INIT})
